@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Demos <a href="/products/add" class="btn btn-success pull-right">Add product</a></h2>
+        <hr />
+
+        <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Post Date</th>
+                        <th>Category</th>
+                        <th>Published</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.title}}</td>
+                            <td>{{this.postDate}}</td>
+                            <td><a href="/demos?category={{this.category}}">{{this.category}}</a></td>
+                            <td>{{this.published}}</td>
+                            <td><a class="btn btn-danger" href="/products/delete/{{id}}">remove</a></td>
+                        </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    {{#unless products}}
+        <div class="col-md-12 text-center">
+            <strong>{{message}}</strong>
+        </div>
+    {{/unless}}
+</div>
